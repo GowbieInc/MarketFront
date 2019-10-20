@@ -17,7 +17,7 @@ import { Category } from '../../shared/models/category.model';
     ])
   ]
 })
-export class categoryComponent implements OnInit {
+export class CategoryComponent implements OnInit {
 
   categoriestate = 'ready'
 

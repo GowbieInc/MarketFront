@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './category-detail.component.html',
   styleUrls: ['./category-detail.component.css']
 })
-export class categoryDetailComponent implements OnInit {
+export class CategoryDetailComponent implements OnInit {
 
   category: Category;
 

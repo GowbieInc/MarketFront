@@ -27,7 +27,7 @@ import { CategoriesService } from './category/categories.service';
     ])
   ]
 })
-export class categoriesComponent implements OnInit {
+export class CategoriesComponent implements OnInit {
 
   searchBarState = 'hidden';
   categories: Category[];
