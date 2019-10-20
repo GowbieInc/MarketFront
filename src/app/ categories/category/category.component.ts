@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
-import { category } from './category.model';
+import { Category } from '../../shared/models/category.model';
 
 @Component({
   selector: 'mt-category',
@@ -21,11 +21,9 @@ export class categoryComponent implements OnInit {
 
   categoriestate = 'ready'
 
-  @Input() category: category;
+  @Input() category: Category;
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

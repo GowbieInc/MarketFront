@@ -1,49 +1,47 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http, Headers, RequestOptions } from '@angular/http';
 
-
+import { ApiService } from './../shared/services/api/api.service';
 import { Order, OrderItem } from './order.model';
 import { ShoppingCartService } from '../category-detail/shopping-cart/shopping-cart.service';
 import { CartItem } from '../category-detail/shopping-cart/cart-item.model';
-import { MEAT_API } from '../../app/app.api';
 
 @Injectable()
 export class OrderService {
 
-  constructor(private cartService: ShoppingCartService, private http: Http) { }
+  constructor(
+    private cartService: ShoppingCartService,
+    private apiService: ApiService
+  ) { }
 
-  cartItems(): CartItem[]{
+  cartItems(): CartItem[] {
     return this.cartService.items;
   }
 
-  increaseQty(item: CartItem){
+  increaseQty(item: CartItem) {
     this.cartService.increaseQty(item);
   }
 
-  decreaseQty(item: CartItem){
+  decreaseQty(item: CartItem) {
     this.cartService.decreaseQty(item);
-    if(item.quantity === 0){
+    if (item.quantity === 0) {
       this.removeItem(item);
     }
   }
 
-  removeItem(item: CartItem){
+  removeItem(item: CartItem) {
     this.cartService.removeItem(item);
   }
 
-  itemsValue():number{
+  itemsValue(): number {
     return this.cartService.total();
   }
 
-  checkOrder(order: Order): Observable<Order>{
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(`${MEAT_API}/orders`, JSON.stringify(order), new RequestOptions({headers: headers})).map(response => response.json())
+  checkOrder(order: Order): Observable<Order> {
+    return this.apiService.checkOrder(order);
   }
 
-  clear(){
+  clear() {
     this.cartService.clear();
   }
-
 }

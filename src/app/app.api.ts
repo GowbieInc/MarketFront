@@ -1,3 +1,3 @@
 import { environment } from "environments/environment";
 
-export const MEAT_API = environment.api;
+export const MARKET_API = environment.api;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { categoriesService } from '../ categories/category/categories.service';
-import { category } from '../ categories/category/category.model';
+import { CategoriesService } from '../ categories/category/categories.service';
+import { Category } from '../shared/models/category.model';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class categoryDetailComponent implements OnInit {
 
-  category: category;
+  category: Category;
 
-  constructor(private categoriesService: categoriesService,
-    private route: ActivatedRoute) { }
+  constructor(
+    private categoriesService: CategoriesService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.categoriesService.

@@ -1,42 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
 import { Observable } from 'rxjs';
 
-import { MEAT_API } from '../../app.api';
-
-import { category } from './category.model';
+import { ApiService } from './../../shared/services/api/api.service';
+import { Category } from '../../shared/models/category.model';
 import { MenuItem } from '../../category-detail/menu-item/menu-item.model';
 
 
 @Injectable()
-export class categoriesService {
+export class CategoriesService {
 
-  constructor(private http: Http) { }
+  constructor(private apiService: ApiService) { }
 
-
-
-  categories(search?: string): Observable<category[]> {
-    return this.http.
-      get(`${MEAT_API}/categories`, {params: {q: search}}).
-      map(response => response.json());
+  categories(search?: string): Observable<Category[]> {
+    return this.apiService.getProductCategories();
   }
 
-  categoryById(id: string): Observable<category> {
-    return this.http.get(`${MEAT_API}/categories/${id}`).
-      map(response => response.json());
+  categoryById(id: string): Observable<Category> {
+    return this.apiService.getCategoryById(id);
   }
 
   reviewsOfcategory(id: string): Observable<any> {
-    return this.http.
-      get(`${MEAT_API}/categories/${id}/reviews`).
-      map(response => response.json());
+    return this.apiService.getReviewsOfCategory(id);
   }
 
   menuOfcategory(id: string): Observable<MenuItem[]> {
-    return this.http.
-      get(`${MEAT_API}/categories/${id}/menu`).
-      map(response => response.json());
+    return this.apiService.getMenuOfCategory(id);
   }
-  
 }

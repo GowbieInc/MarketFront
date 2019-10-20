@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { categoriesService } from '../../ categories/category/categories.service';
+import { CategoriesService } from '../../ categories/category/categories.service';
 
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ export class ReviewsComponent implements OnInit {
 
   reviews: Observable<any>;
 
-  constructor(private categoriesService: categoriesService,
+  constructor(private categoriesService: CategoriesService,
   private route: ActivatedRoute) { }
 
   ngOnInit() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { categoriesService } from '../../ categories/category/categories.service';
+import { CategoriesService } from '../../ categories/category/categories.service';
 import { ActivatedRoute } from '@angular/router';
 
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
 
   menu: Observable<MenuItem[]>;
 
-  constructor(private categoriesService: categoriesService,
+  constructor(private categoriesService: CategoriesService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {

@@ -1,12 +1,12 @@
 
 import {from as observableFrom,  Observable } from 'rxjs';
-
 import {catchError, switchMap, distinctUntilChanged, debounceTime} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { category } from './category/category.model';
-import { categoriesService } from './category/categories.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { Category } from '../shared/models/category.model';
+import { CategoriesService } from './category/categories.service';
 
 @Component({
   selector: 'mt-categories',
@@ -30,13 +30,13 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class categoriesComponent implements OnInit {
 
   searchBarState = 'hidden';
-  categories: category[];
+  categories: Category[];
 
   searchForm: FormGroup;
   searchControl: FormControl;
 
   constructor(
-    private categoriesService: categoriesService,
+    private categoriesService: CategoriesService,
     private formBuilder: FormBuilder) {
 
     this.searchForm = this.formBuilder.group({
@@ -48,7 +48,7 @@ export class categoriesComponent implements OnInit {
 
   ngOnInit() {
     this.searchControl.valueChanges.pipe(debounceTime(500),distinctUntilChanged(),
-      switchMap((searchTerm) => this.categoriesService.categories(searchTerm).pipe(
+      switchMap((searchTerm:string) => this.categoriesService.categories(searchTerm).pipe(
         catchError(error => observableFrom([])))),).subscribe(categories => this.categories = categories);
 
     this.categoriesService.categories().
@@ -58,5 +58,4 @@ export class categoriesComponent implements OnInit {
   toggleSearch() {
     (this.searchBarState === 'hidden') ? this.searchBarState = 'visible' : this.searchBarState = 'hidden';
   }
-
 }
