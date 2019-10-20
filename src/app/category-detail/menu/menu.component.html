@@ -1,0 +1,13 @@
+<!--INÍCIO DO MENU -->
+<div class="menu">
+<div class="col-md-9 col-xs-12" style="position: relative;
+right: 14px;">
+
+  <mt-menu-item *ngFor="let item of menu | async" [menuItem]="item" (add)="shoppingCart.addItem($event)" ></mt-menu-item>
+
+</div>
+<div class="col-md-3 col-xs-12">
+  <mt-shopping-cart #shoppingCart></mt-shopping-cart>
+</div>
+</div>
+<!-- FIM DO MENU -->

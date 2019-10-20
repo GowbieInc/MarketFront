@@ -1,0 +1,57 @@
+<!-- Início do header -->
+<header class="main-header">
+  <!-- <nav class="nav-main navbar navbar-static-top ">
+    <div class="container">
+      <div class="navbar-header">
+        <a [routerLink]="['/']" class="navbar-brand"><b>ZSL DISTRIBUIDORA DE LEDS</b></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div> -->
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <!-- <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li routerLinkActive ="active" ><a [routerLink]="['/categories']">Categorias</a></li>
+            <li routerLinkActive ="active" ><a [routerLink]="['/about']">Sobre</a></li>
+        </ul>
+      </div> -->
+      <!-- /.navbar-collapse -->
+
+      <!--Select -->
+      <!-- <select class="select2">
+        <option value="valor1">Valor 1</option> 
+        <option value="valor2" selected>Valor 2</option>
+        <option value="valor3">Valor 3</option>
+      </select> -->
+
+    <!-- </div>
+  </nav> -->
+  <!-- <img src="./../../assets/img/zsl.jpg"></img> -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav-main">
+  <!-- <a class="navbar-brand" href="#">Navbar com texto</a>  -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="textoNavbar">
+      <ul class="navbar-nav mr-auto">
+         <li>
+            <img src="./../../assets/img/zsl.jpg" alt="some text" width=70 height=50 style="border-radius: 48%; margin-right: 15px;">
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(Página atual)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/categories']">Categorias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">Sobre</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <!-- Texto navbar com um elemento inline -->
+        <img src="./../../assets/img/shopping-cart.svg" alt="" style="height: 30px;">
+      </span>
+    </div>
+  </nav>
+  <!-- Fim do header -->
