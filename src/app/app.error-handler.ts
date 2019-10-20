@@ -1,10 +1,10 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 //import { Observable } from 'rxjs/Observable';
 import { Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+
+
 
 export class ErrorHandler {
     static handleError(error: Response | any) {
@@ -17,6 +17,6 @@ export class ErrorHandler {
         }
 
         console.log(errorMessage);
-        return Observable.throw(errorMessage);
+        return observableThrowError(errorMessage);
     }
 }

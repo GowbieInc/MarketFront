@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
+
 
 import { Order, OrderItem } from './order.model';
 import { ShoppingCartService } from '../category-detail/shopping-cart/shopping-cart.service';

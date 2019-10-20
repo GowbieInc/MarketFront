@@ -1,16 +1,12 @@
+
+import {from as observableFrom,  Observable } from 'rxjs';
+
+import {catchError, switchMap, distinctUntilChanged, debounceTime} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { category } from './category/category.model';
 import { categoriesService } from './category/categories.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/from';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'mt-categories',
@@ -51,9 +47,9 @@ export class categoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.searchControl.valueChanges.debounceTime(500).distinctUntilChanged()
-      .switchMap((searchTerm) => this.categoriesService.categories(searchTerm)
-        .catch(error => Observable.from([]))).subscribe(categories => this.categories = categories);
+    this.searchControl.valueChanges.pipe(debounceTime(500),distinctUntilChanged(),
+      switchMap((searchTerm) => this.categoriesService.categories(searchTerm).pipe(
+        catchError(error => observableFrom([])))),).subscribe(categories => this.categories = categories);
 
     this.categoriesService.categories().
       subscribe(categories => this.categories = categories);

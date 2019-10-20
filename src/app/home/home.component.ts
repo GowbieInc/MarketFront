@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/scan';
+import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'mt-home',

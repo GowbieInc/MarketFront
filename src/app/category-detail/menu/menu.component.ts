@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { categoriesService } from '../../ categories/category/categories.service';
 import { ActivatedRoute } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { MenuItem } from '../menu-item/menu-item.model';
 
