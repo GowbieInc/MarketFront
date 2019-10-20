@@ -2,7 +2,8 @@
 <section class="content-header">
   <h1>
     Todos os produtos
-    <a (click)="toggleSearch()" class="search-link pull-right"><span *ngIf="iptSearch.value"><small>"{{ iptSearch.value }}"</small></span><i class="fa fa-search"></i></a>
+    <a (click)="toggleSearch()" class="search-link pull-right"><span
+        *ngIf="iptSearch.value"><small>"{{ iptSearch.value }}"</small></span><i class="fa fa-search"></i></a>
   </h1>
 
   <!--Barra de busca-->
@@ -10,7 +11,8 @@
     <div class="col-xs-12 search-bar" [@toggleSearch]="searchBarState">
       <form [formGroup]="searchForm">
         <div class="form-group">
-          <input type="text" #iptSearch formControlName="searchControl" class="form-control" placeholder="O que está procurando?" >
+          <input type="text" #iptSearch formControlName="searchControl" class="form-control"
+            placeholder="O que está procurando?">
         </div>
       </form>
     </div>

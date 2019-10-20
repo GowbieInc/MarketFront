@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -47,6 +48,9 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],

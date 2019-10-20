@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { category } from './category/category.model';
 import { categoriesService } from './category/categories.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
@@ -39,25 +39,28 @@ export class categoriesComponent implements OnInit {
   searchForm: FormGroup;
   searchControl: FormControl;
 
-  constructor(private categoriesService: categoriesService, private fb: FormBuilder) {}
+  constructor(
+    private categoriesService: categoriesService,
+    private formBuilder: FormBuilder) {
 
-  ngOnInit() {
-    this.searchControl = this.fb.control('');
-    
-    this.searchForm = this.fb.group({
-      searchControl: this.searchControl
+    this.searchForm = this.formBuilder.group({
+      searchControl: ['', Validators.required]
     });
 
+    this.searchControl = this.formBuilder.control('');
+  }
+
+  ngOnInit() {
     this.searchControl.valueChanges.debounceTime(500).distinctUntilChanged()
-      .switchMap( (searchTerm) => this.categoriesService.categories(searchTerm)
-      .catch(error => Observable.from([]))).subscribe(categories => this.categories = categories);
+      .switchMap((searchTerm) => this.categoriesService.categories(searchTerm)
+        .catch(error => Observable.from([]))).subscribe(categories => this.categories = categories);
 
     this.categoriesService.categories().
       subscribe(categories => this.categories = categories);
   }
 
-  toggleSearch(){
+  toggleSearch() {
     (this.searchBarState === 'hidden') ? this.searchBarState = 'visible' : this.searchBarState = 'hidden';
   }
-  
+
 }
