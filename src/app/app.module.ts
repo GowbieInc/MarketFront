@@ -9,6 +9,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { ROUTES } from './app.routes'
 
+import { ApiServiceModule } from './shared/services/api/api.service.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -51,6 +52,7 @@ import { FooterComponent } from './footer/footer.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ApiServiceModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],

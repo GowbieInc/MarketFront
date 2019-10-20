@@ -3,9 +3,6 @@ import { Http } from '@angular/http';
 
 import { Observable } from 'rxjs';
 
-
-
-
 import { MEAT_API } from '../../app.api';
 
 import { category } from './category.model';
