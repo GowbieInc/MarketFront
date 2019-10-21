@@ -1,0 +1,49 @@
+.grid-input-grey {
+    width: 100%;
+}
+
+.grid-input-grey /deep/ input {
+    width: 100%;
+}
+
+.grid-input-grey_label {
+    font-weight: bold;
+    color: #7F9798;
+    cursor: pointer;
+}
+
+.grid-input-grey /deep/ input {
+    border: 1px solid #D7E2E2;
+    border-radius: 4px;
+    padding: 10px;
+    color: #7F9798;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.grid-input-grey /deep/ input:disabled {
+    background: #DEDEDE;
+    opacity: 0.5;
+}
+
+.grid-input-grey /deep/ input:disabled+span {
+    opacity: 0.2;
+}
+
+.activeInformative /deep/ input {
+    border-color: #00B8C1;
+}
+
+.activeInformative /deep/ span {
+    color: #00B8C1;
+    font-size: 12px;
+}
+
+.invalid /deep/ input {
+    border-color: #ED4444!important;
+}
+
+.invalid /deep/ span, .invalid /deep/ label {
+    color: #ED4444!important;
+}

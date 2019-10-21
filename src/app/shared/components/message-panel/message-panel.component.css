@@ -1,0 +1,32 @@
+
+.message-container_row_col_title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #009180;
+    line-height: 21px;
+}
+
+.message-container_row_col.onetitle .message-container_row_col_title {
+    margin-bottom: 23px;
+}
+
+.message-container_row_col_subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 23px;
+    color: #7F9798;
+    margin-top: 0;
+}
+
+.message-container_row_col_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+
+
+

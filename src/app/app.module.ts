@@ -1,4 +1,3 @@
-import { SessionHeaderInterceptor } from './shared/interceptors/session-header.interceptor';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -9,7 +8,6 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { ROUTES } from './app.routes'
 
-import { ApiServiceModule } from './shared/services/api/api.service.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -26,9 +24,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 // import { OffersComponent } from './home/src/app/home/offers/offers.component';
 import { OffersComponent } from './home/offers/offers.component';
 import { FooterComponent } from './footer/footer.component';
-import { SessionStorage } from './shared/services/storage/session-storage/session-storage.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeFrameComponent } from './home/home-frame/home-frame.component';
+
+import { ApiServiceModule } from './shared/services/api/api.service.module';
+import { RedirectService } from './shared/services/redirect/redirect.service';
+import { SessionHeaderInterceptor } from './shared/interceptors/session-header.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SessionStorage } from './shared/services/storage/session-storage/session-storage.service';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,8 @@ import { HomeFrameComponent } from './home/home-frame/home-frame.component';
       useClass: SessionHeaderInterceptor,
       multi: true
     },
-    SessionStorage
+    SessionStorage,
+    RedirectService
   ],
   bootstrap: [AppComponent]
 })

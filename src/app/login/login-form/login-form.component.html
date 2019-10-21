@@ -1,0 +1,30 @@
+<div class="container-fluid login-container">
+  <div class="row login-container_row">
+    <div class="col-xs-12 col-sm-7 login-container_row_col">
+      <app-warning-messages [submitted]="submitted" [default]="message" [responseError]="responseError"
+        [form]="loginForm"></app-warning-messages>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-container_row_col_form">
+        <div class="login-container_row_col_form_box fadeInLeft animation animation-1">
+          <app-grid-input-grey for="login-field" label="E-mail" [valid]="validField('login')">
+            <input id="login-field" formControlName="login" type="text" />
+          </app-grid-input-grey>
+        </div>
+        <div class="login-container_row_col_form_box fadeInLeft animation animation-2">
+          <app-grid-input-grey for="password" label="Senha" [valid]="validField('password')">
+            <input formControlName="password" id="password" type="password" />
+          </app-grid-input-grey>
+        </div>
+        <div class="login-container_row_col_form_box fadeInLeft animation animation-3">
+          <app-button-rounded type="submit" id="button-login">
+            {{ loading ? 'ENTRANDO...':'CONTINUAR' }}
+          </app-button-rounded>
+        </div>
+        <div class="login-container_row_col_form_forgot-password">
+          <a [routerLink]="['/login/esqueci-minha-senha']"
+            class="login-container_row_col_form_forgot-password_button featured-link">Não
+            sei minha senha</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="col-xs-12 panel-container"
+  [ngClass]="{error: status === EPanelStatus.error, showPanel: (!form.valid && submitted ) || responseError}">
+  <i class="bpc-svg-exclamation-circle panel-container_img" alt="erro"></i>
+
+
+  <span class="panel-container_message">{{ getMessage(loginControl, 'CPF incorreto!') || 
+      getMessage(passwordControl, 'Senha deve conter no minimo 6 caracteres!') || 
+      getMessage(passwordsControl, 'Senha deve conter no minimo 6 caracteres!') || 
+      getMessage(passwordsConfirmControl, 'Senhas devem ser iguais!') ||
+      getMessage(notificationMethodControl, 'Selecione um canal para comunicação!') ||  default }}</span>
+</div>

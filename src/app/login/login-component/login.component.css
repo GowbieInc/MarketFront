@@ -1,0 +1,34 @@
+.wellcome-message {
+    width: 100%;
+}
+
+.center-message {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    padding-bottom: 50px;
+    padding-top: 75px;
+}
+
+@media screen and (min-width: 763px) 
+{
+    .center-message {
+        overflow-y: auto;
+    }
+}
+
+@media screen and (max-height: 600px) 
+{
+    .center-message {
+        display: block;
+        height: auto;
+    }
+
+    .message-container_row {
+        width: auto;
+        padding: 20px 0;
+        margin: 0;
+    }
+}

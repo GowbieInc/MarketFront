@@ -1,0 +1,23 @@
+.button-rounded {
+    border-radius: 50px;
+    font-size: 14px;
+    text-transform: uppercase;
+    background: #E66E12;
+    color: #FFF;
+    width: 100%;
+    padding: 14px 17px;
+    border: none;
+    font-weight: bold;
+    outline: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.button-rounded:hover, .button-rounded:active {
+    background: #009180;
+}
+
+
+.button-rounded:disabled  {
+    opacity: 0.3;
+    background: #E66E12!important;
+}

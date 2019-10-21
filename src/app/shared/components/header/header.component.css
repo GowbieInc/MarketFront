@@ -1,0 +1,20 @@
+.header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #EDF4F4;
+    height: 56px;
+    z-index: 99;
+    background: #FFF;
+    width: 100%;
+}
+
+.header_row_col {
+    width: 224px;
+}
+
+.header-logo {
+    width: 105px;
+    height: 40px;
+    float: left;
+    display: flex;
+}

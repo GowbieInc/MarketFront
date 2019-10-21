@@ -1,0 +1,5 @@
+<div class="grid-input-grey" [ngClass]="{activeInformative: informative, invalid: !valid}">
+    <label class="grid-input-grey_label" [for]="for">{{label}}</label>
+    <ng-content></ng-content>
+    <span [innerHtml]="informative"></span>
+</div>

@@ -1,0 +1,10 @@
+<section class="container-fluid message-container">
+    <div class="row message-container_row">
+        <div class="col-xs-12 message-container_row_col" [ngClass]="{onetitle: subtitle == null}">
+            <ng-content></ng-content>
+            <h1 [innerHtml]="message" class="message-container_row_col_title"></h1>
+            <h2 [style.display]="!subtitle ? 'none' : ''" [innerHtml]="subtitle"
+                class="message-container_row_col_subtitle"></h2>
+        </div>
+    </div>
+</section>

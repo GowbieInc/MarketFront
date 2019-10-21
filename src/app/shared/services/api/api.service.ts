@@ -5,6 +5,7 @@ import { Order } from 'app/order/order.model';
 
 const productCategoryApi = MARKET_API + '/product/category/';
 const orderApi = MARKET_API + '/orders/';
+const userApi = MARKET_API + '/user/';
 
 @Injectable()
 export class ApiService {
@@ -35,8 +36,20 @@ export class ApiService {
     // ORDER
     checkOrder(order: Order) {
         return this.httpService.postJson(orderApi, order);
-    } 
+    }
     // END ORDER
+
+    // USER
+
+    login(user: string, password: string) {
+        const params = {
+            user: user,
+            password: password
+        };
+        return this.httpService.postJson(userApi + 'login', params);
+    }
+
+    // END USER
 
     private windowOpen(url: string) {
         return window.open(url, '_self');
