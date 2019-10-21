@@ -13,9 +13,7 @@ import { FrameComponent } from './frame/frame.component';
         SharedModule,
         LoginRoutingModule
     ],
-    exports: [],
-    providers: [
-
-    ]
+    exports: [ ],
+    providers: [ ]
 })
 export class LoginModule { }

@@ -28,6 +28,7 @@ import { OffersComponent } from './home/offers/offers.component';
 import { FooterComponent } from './footer/footer.component';
 import { SessionStorage } from './shared/services/storage/session-storage/session-storage.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HomeFrameComponent } from './home/home-frame/home-frame.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     OrderSummaryComponent,
     NotFoundComponent,
     OffersComponent,
-    FooterComponent
+    FooterComponent,
+    HomeFrameComponent
   ],
   imports: [
     BrowserModule,
